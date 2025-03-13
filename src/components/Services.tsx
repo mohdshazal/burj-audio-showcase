@@ -66,10 +66,10 @@ const Services = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="services" className="section-padding bg-background">
+    <section id="services" className="section-padding bg-gradient-to-b from-black/95 to-black">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
+          <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
             Our Services
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
@@ -96,20 +96,20 @@ const Services = () => {
                 <div 
                   className={cn(
                     "service-card backdrop-blur h-full border border-white/5 rounded-xl transition-all duration-500",
-                    isHovered ? "bg-white/10 translate-y-[-5px] shadow-lg" : "bg-card hover:bg-card/80"
+                    isHovered ? "bg-gradient-to-br from-white/10 to-black/80 translate-y-[-5px] shadow-lg scale-105" : "bg-card/90 hover:bg-card/80"
                   )}
                 >
                   <div className="p-6">
                     <div 
                       className={cn(
                         "w-12 h-12 flex items-center justify-center rounded-lg mb-4 transition-all duration-500",
-                        isHovered ? "bg-white/20" : "bg-white/5" 
+                        isHovered ? "bg-gradient-to-br from-white/30 to-white/5" : "bg-white/5" 
                       )}
                     >
                       <Icon 
                         className={cn(
                           "h-6 w-6 transition-all duration-500",
-                          isHovered ? "text-white" : "text-white/80"
+                          isHovered ? "text-white scale-110" : "text-white/80"
                         )} 
                       />
                     </div>
@@ -117,7 +117,7 @@ const Services = () => {
                     <p className="text-white/70">{service.description}</p>
                     
                     {/* Animated underline on hover */}
-                    <div className="mt-4 h-0.5 w-0 bg-white/30 transition-all duration-500 group-hover:w-full" />
+                    <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-white/5 via-white/30 to-white/5 transition-all duration-500 group-hover:w-full" />
                   </div>
                 </div>
               </AnimatedSection>

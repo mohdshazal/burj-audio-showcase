@@ -17,14 +17,51 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // SEO optimization
     document.title = "Burj Audio | Premium Audio Systems & Installation";
+    
+    // Add meta descriptions for SEO
+    const metaDescription = document.createElement('meta');
+    metaDescription.name = 'description';
+    metaDescription.content = 'Burj Audio provides premium audio system installation, home cinema setups, and professional sound solutions. Expert installation and consultation services.';
+    document.head.appendChild(metaDescription);
+    
+    // Add keywords for SEO
+    const metaKeywords = document.createElement('meta');
+    metaKeywords.name = 'keywords';
+    metaKeywords.content = 'audio systems, speaker installation, home cinema, sound systems, premium audio, surround sound, Burj Audio';
+    document.head.appendChild(metaKeywords);
+    
+    // Add Open Graph tags for social sharing
+    const ogTitle = document.createElement('meta');
+    ogTitle.property = 'og:title';
+    ogTitle.content = 'Burj Audio | Premium Audio Systems & Installation';
+    document.head.appendChild(ogTitle);
+    
+    const ogDescription = document.createElement('meta');
+    ogDescription.property = 'og:description';
+    ogDescription.content = 'Experience premium audio with Burj Audio - specialists in high-end audio system installation and home cinema solutions.';
+    document.head.appendChild(ogDescription);
+    
+    const ogType = document.createElement('meta');
+    ogType.property = 'og:type';
+    ogType.content = 'website';
+    document.head.appendChild(ogType);
     
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2500);
     
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      // Clean up meta tags when component unmounts
+      document.head.removeChild(metaDescription);
+      document.head.removeChild(metaKeywords);
+      document.head.removeChild(ogTitle);
+      document.head.removeChild(ogDescription);
+      document.head.removeChild(ogType);
+    };
   }, []);
 
   if (isLoading) {
@@ -32,15 +69,21 @@ const Index = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen w-full overflow-x-hidden bg-background">
+    <div className="flex flex-col min-h-screen w-full overflow-x-hidden bg-gradient-to-b from-black to-black/95">
       <Header />
-      <main className="flex-grow w-full">
+      <main className="flex-grow w-full animate-fade-in">
         <Hero />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <Services />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <Portfolio />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <Testimonials />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <FAQ />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <About />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
         <Contact />
       </main>
       <Footer />

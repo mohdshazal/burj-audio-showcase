@@ -80,8 +80,10 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 backdrop-blur transition-all duration-500",
-        isScrolled ? "bg-black/80 backdrop-blur-md shadow-md py-3" : "bg-transparent py-5"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled 
+          ? "bg-gradient-to-r from-black/90 via-black/95 to-black/90 shadow-lg shadow-black/50 backdrop-blur-md py-3 border-b border-white/5" 
+          : "bg-gradient-to-b from-black/80 to-transparent py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -91,7 +93,7 @@ const Header = () => {
           <>
             <button
               onClick={toggleMenu}
-              className="flex items-center justify-center text-white p-2"
+              className="flex items-center justify-center text-white p-2 hover:bg-white/5 rounded-full transition-colors"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -99,7 +101,7 @@ const Header = () => {
             
             <div
               className={cn(
-                "fixed inset-0 z-40 bg-black/95 backdrop-blur-md transition-all duration-500 transform",
+                "fixed inset-0 z-40 bg-gradient-to-b from-black/95 to-black/90 backdrop-blur-md transition-all duration-500 transform",
                 isMenuOpen ? "translate-x-0" : "translate-x-full"
               )}
               style={{ top: "60px" }}
@@ -111,13 +113,15 @@ const Header = () => {
                     href={item.href}
                     className={cn(
                       "text-2xl font-medium transition-all duration-300 relative group",
-                      activeSection === item.href.substring(1) ? "text-white" : "text-white/60 hover:text-white"
+                      activeSection === item.href.substring(1) 
+                        ? "text-white" 
+                        : "text-white/60 hover:text-white"
                     )}
                     onClick={closeMenu}
                   >
                     {item.label}
                     <span className={cn(
-                      "absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full",
+                      "absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-white/30 via-white to-white/30 transition-all duration-300 group-hover:w-full",
                       activeSection === item.href.substring(1) && "w-full"
                     )} />
                   </a>
@@ -132,13 +136,15 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-all duration-300 relative group",
-                  activeSection === item.href.substring(1) ? "text-white" : "text-white/60 hover:text-white"
+                  "text-sm font-medium transition-all duration-300 relative group hover:scale-105",
+                  activeSection === item.href.substring(1) 
+                    ? "text-white" 
+                    : "text-white/60 hover:text-white"
                 )}
               >
                 {item.label}
                 <span className={cn(
-                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full",
+                  "absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-white/30 via-white to-white/30 transition-all duration-300 group-hover:w-full",
                   activeSection === item.href.substring(1) && "w-full"
                 )} />
               </a>

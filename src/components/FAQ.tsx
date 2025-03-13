@@ -38,10 +38,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="section-padding bg-card">
+    <section id="faq" className="section-padding bg-gradient-to-b from-black to-card/80">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
+          <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
             Questions & Answers
           </span>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
@@ -53,19 +53,19 @@ const FAQ = () => {
         </AnimatedSection>
 
         <AnimatedSection 
-          className="max-w-3xl mx-auto bg-black/50 rounded-xl p-6 md:p-8 backdrop-blur-sm border border-white/5"
+          className="max-w-3xl mx-auto bg-gradient-to-br from-black/70 to-black/40 rounded-xl p-6 md:p-8 backdrop-blur-sm border border-white/5 shadow-xl"
         >
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-2">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`faq-${index}`}
-                className="border-white/10 last:border-b-0"
+                className="border-white/10 last:border-b-0 rounded-lg overflow-hidden transition-all duration-300 hover:bg-white/5"
               >
-                <AccordionTrigger className="text-left text-white hover:text-white/90 hover:no-underline py-4">
-                  {faq.question}
+                <AccordionTrigger className="text-left text-white hover:text-white/90 hover:no-underline py-3 px-4 text-base group">
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-white/70">
+                <AccordionContent className="text-white/70 text-sm px-4 pb-5 pt-0">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

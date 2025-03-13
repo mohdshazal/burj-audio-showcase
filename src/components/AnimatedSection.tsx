@@ -9,6 +9,8 @@ interface AnimatedSectionProps {
   animation?: "fade-in" | "fade-in-right" | "fade-in-left" | "fade-in-up" | "fade-in-down" | "scale-in" | "bounce-in";
   threshold?: number;
   duration?: number;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const AnimatedSection = ({ 
@@ -17,7 +19,9 @@ const AnimatedSection = ({
   delay = 0,
   animation = "fade-in",
   threshold = 0.1,
-  duration = 600
+  duration = 600,
+  onMouseEnter,
+  onMouseLeave
 }: AnimatedSectionProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -92,6 +96,8 @@ const AnimatedSection = ({
         transitionDelay: `${delay}ms`,
         transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)"
       }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </div>
