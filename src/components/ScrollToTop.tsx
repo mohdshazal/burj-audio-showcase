@@ -32,7 +32,7 @@ const ScrollToTop = () => {
       variant="outline"
       size="icon"
       className={cn(
-        "fixed bottom-8 right-8 z-50 rounded-full border-none bg-burj-accent text-white shadow-lg opacity-0 transition-all duration-500 hover:bg-burj-accent/90 hover:scale-110",
+        "fixed bottom-8 right-8 z-50 rounded-full border-none bg-white text-black shadow-lg opacity-0 transition-all duration-500 hover:bg-white/90 hover:scale-110",
         isVisible ? "opacity-100 translate-y-0" : "translate-y-16"
       )}
       onClick={scrollToTop}

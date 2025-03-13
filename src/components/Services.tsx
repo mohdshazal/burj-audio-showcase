@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
   Speaker, 
@@ -63,17 +63,19 @@ const services: Service[] = [
 ];
 
 const Services = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
-    <section id="services" className="section-padding bg-secondary">
+    <section id="services" className="section-padding bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-burj-accent/10 rounded-full text-sm font-medium text-burj-accent mb-4">
+          <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
             Our Services
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
             Premium Audio Solutions
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-white/70">
             We offer a comprehensive range of audio installation and service solutions to elevate your sound experience.
           </p>
         </AnimatedSection>
@@ -81,19 +83,42 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const isHovered = hoveredIndex === index;
             
             return (
               <AnimatedSection 
                 key={index} 
                 delay={100 * index}
-                className="service-card backdrop-blur bg-background/50 rounded-xl hover:shadow-xl transition-all duration-300"
+                className="group"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div className="p-6">
-                  <div className="w-12 h-12 bg-burj-accent/10 flex items-center justify-center rounded-lg mb-4">
-                    <Icon className="h-6 w-6 text-burj-accent" />
+                <div 
+                  className={cn(
+                    "service-card backdrop-blur h-full border border-white/5 rounded-xl transition-all duration-500",
+                    isHovered ? "bg-white/10 translate-y-[-5px] shadow-lg" : "bg-card hover:bg-card/80"
+                  )}
+                >
+                  <div className="p-6">
+                    <div 
+                      className={cn(
+                        "w-12 h-12 flex items-center justify-center rounded-lg mb-4 transition-all duration-500",
+                        isHovered ? "bg-white/20" : "bg-white/5" 
+                      )}
+                    >
+                      <Icon 
+                        className={cn(
+                          "h-6 w-6 transition-all duration-500",
+                          isHovered ? "text-white" : "text-white/80"
+                        )} 
+                      />
+                    </div>
+                    <h3 className="text-xl font-medium mb-2 text-white">{service.title}</h3>
+                    <p className="text-white/70">{service.description}</p>
+                    
+                    {/* Animated underline on hover */}
+                    <div className="mt-4 h-0.5 w-0 bg-white/30 transition-all duration-500 group-hover:w-full" />
                   </div>
-                  <h3 className="text-xl font-medium mb-2">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
                 </div>
               </AnimatedSection>
             );

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,7 +62,7 @@ export default {
         burj: {
           dark: '#121212',
           light: '#F9F9F9',
-          accent: '#007AFF',
+          accent: '#8A8A8A',
           muted: '#8A8A8A',
           silver: '#E0E0E0',
         }
@@ -121,6 +120,18 @@ export default {
           '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
           '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
           '100%': { transform: 'translate(0px, 0px) scale(1)' }
+        },
+        'shimmer': {
+          '0%': { backgroundPosition: '-400% 0' },
+          '100%': { backgroundPosition: '400% 0' }
+        },
+        'reveal': {
+          '0%': { transform: 'scaleX(0)', transformOrigin: 'left' },
+          '100%': { transform: 'scaleX(1)', transformOrigin: 'left' }
+        },
+        'subtle-bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' }
         }
       },
       animation: {
@@ -133,7 +144,10 @@ export default {
         'float': 'float 3s ease-in-out infinite',
         'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
         'wave': 'wave 2.5s ease-in-out infinite',
-        'blob': 'blob 7s infinite'
+        'blob': 'blob 7s infinite',
+        'shimmer': 'shimmer 8s ease-in-out infinite',
+        'reveal': 'reveal 0.8s ease-out forwards',
+        'subtle-bounce': 'subtle-bounce 2s ease-in-out infinite',
       }
     }
   },

@@ -15,25 +15,25 @@ const projects: Project[] = [
   {
     title: "Luxury Villa Audio System",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
     description: "Complete home audio setup with ceiling speakers in 12 zones and a dedicated cinema room."
   },
   {
     title: "Boutique Hotel Lobby",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
     description: "Ambient background music system with seamless zone control for different areas."
   },
   {
     title: "Downtown Apartment",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
     description: "Minimalist audio solution with hidden speakers and smart home integration."
   },
   {
     title: "Fine Dining Restaurant",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
     description: "Sophisticated sound system with perfect acoustics for an enhanced dining experience."
   }
 ];
@@ -43,22 +43,23 @@ const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="portfolio" className="section-padding">
+    <section id="portfolio" className="section-padding bg-black">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-burj-accent/10 rounded-full text-sm font-medium text-burj-accent mb-4">
+          <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
             Our Work
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-white/70">
             Explore our portfolio of premium audio installations for residential and commercial spaces.
           </p>
         </AnimatedSection>
@@ -70,8 +71,8 @@ const Portfolio = () => {
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium transition-all",
                 activeCategory === category
-                  ? "bg-burj-accent text-white"
-                  : "bg-secondary text-foreground hover:bg-burj-accent/10"
+                  ? "bg-white text-black"
+                  : "bg-white/5 text-white border border-white/10 hover:bg-white/10"
               )}
               onClick={() => setActiveCategory(category)}
             >
@@ -86,16 +87,23 @@ const Portfolio = () => {
               key={index} 
               className="group relative overflow-hidden rounded-2xl shadow-md hover-lift"
               delay={100 * index}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center">
+              <div 
+                className={cn(
+                  "absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center",
+                  hoveredIndex === index && "animate-fade-in"
+                )}
+              >
                 <div className="text-center p-6">
-                  <span className="inline-block px-3 py-1 bg-burj-accent/80 rounded-full text-xs font-medium text-white mb-2">
+                  <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-medium text-white mb-2 border border-white/20">
                     {project.category}
                   </span>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{project.title}</h3>
                   <p className="text-white/80 mb-4 max-w-md mx-auto">{project.description}</p>
                   <button 
-                    className="inline-flex items-center text-white bg-burj-accent/80 px-4 py-2 rounded-full text-sm"
+                    className="inline-flex items-center text-black bg-white px-4 py-2 rounded-full text-sm hover:bg-white/90 transition-colors"
                     onClick={() => setActiveProject(project)}
                   >
                     View Details
@@ -106,9 +114,14 @@ const Portfolio = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-[300px] object-cover transform transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-[300px] object-cover transform transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
+              
+              {/* Premium accent line */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 overflow-hidden">
+                <div className="h-full bg-white/80 w-1/3 animate-shimmer rounded-r-full" />
+              </div>
             </AnimatedSection>
           ))}
         </div>

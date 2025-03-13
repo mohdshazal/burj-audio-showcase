@@ -21,8 +21,8 @@ const Logo = ({
     lg: "h-12",
   };
 
-  const textColor = variant === "light" ? "text-white" : "text-burj-dark";
-  const accentColor = "text-burj-accent";
+  const textColor = variant === "light" ? "text-white" : "text-white";
+  const accentColor = "text-burj-silver";
 
   return (
     <div className={cn("flex items-center", className)}>
@@ -37,40 +37,41 @@ const Logo = ({
           )}
           style={{ animationDelay: "100ms" }}
         >
-          <circle 
-            cx="20" 
-            cy="20" 
-            r="20" 
-            className={variant === "light" ? "fill-white" : "fill-burj-dark"} 
-            fillOpacity="0.1"
+          <rect 
+            width="40" 
+            height="40" 
+            rx="8" 
+            className="fill-white/10" 
           />
           <path
-            d="M20 5C20 5 12 12 12 20C12 28 20 35 20 35"
+            d="M20 8L12 20L20 32"
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
-            className={accentColor}
-          />
-          <path
-            d="M20 5C20 5 28 12 28 20C28 28 20 35 20 35"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
+            strokeLinejoin="round"
             className={textColor}
           />
-          <circle cx="20" cy="20" r="3" className={accentColor} />
+          <path
+            d="M20 8L28 20L20 32"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={accentColor}
+          />
+          <circle cx="20" cy="20" r="2" className="fill-white" />
         </svg>
       </div>
       <div 
         className={cn(
-          "ml-2 font-sans font-medium tracking-tight", 
+          "ml-2 font-sans font-medium tracking-wider", 
           textColor,
           animated && "animate-fade-in-right"
         )}
         style={{ animationDelay: "300ms" }}
       >
-        <span>Burj</span>
-        <span className={accentColor}> Audio</span>
+        <span className="text-white">BURJ</span>
+        <span className={cn(accentColor, "ml-1 font-light")}>AUDIO</span>
       </div>
     </div>
   );
