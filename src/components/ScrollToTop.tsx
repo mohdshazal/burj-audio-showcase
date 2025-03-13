@@ -32,8 +32,8 @@ const ScrollToTop = () => {
       variant="outline"
       size="icon"
       className={cn(
-        "fixed bottom-8 right-8 z-50 rounded-full border-none bg-burj-accent text-white opacity-0 transition-all duration-300",
-        isVisible ? "opacity-100 translate-y-0" : "translate-y-10"
+        "fixed bottom-8 right-8 z-50 rounded-full border-none bg-burj-accent text-white shadow-lg opacity-0 transition-all duration-500 hover:bg-burj-accent/90 hover:scale-110",
+        isVisible ? "opacity-100 translate-y-0" : "translate-y-16"
       )}
       onClick={scrollToTop}
       aria-label="Scroll to top"
