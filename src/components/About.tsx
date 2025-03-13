@@ -38,26 +38,26 @@ const About = () => {
     <section id="about" className="section-padding">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <AnimatedSection className="relative">
+          <AnimatedSection animation="fade-in-up" className="relative">
             <div className="relative rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-burj-accent to-transparent opacity-20 z-10" />
               <img
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81"
-                alt="Burj Audio Team"
+                src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=3065&auto=format&fit=crop"
+                alt="Burj Audio Premium Equipment"
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 bg-white p-4 md:p-6 rounded-xl shadow-xl">
+            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 bg-gradient-to-br from-black/70 to-black/95 p-4 md:p-6 rounded-xl shadow-xl border border-white/10 animate-float">
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {stats.map((stat, index) => {
                   const Icon = stat.icon;
                   
                   return (
-                    <div key={index} className="text-center p-3">
-                      <Icon className="w-6 h-6 text-burj-accent mx-auto mb-2" />
-                      <div className="text-2xl md:text-3xl font-bold">{stat.value}</div>
-                      <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+                    <div key={index} className="text-center p-3 hover:scale-105 transition-transform duration-300">
+                      <Icon className="w-6 h-6 text-white mx-auto mb-2" />
+                      <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
+                      <div className="text-xs md:text-sm text-white/70">{stat.label}</div>
                     </div>
                   );
                 })}
@@ -66,14 +66,14 @@ const About = () => {
           </AnimatedSection>
           
           <AnimatedSection animation="fade-in-left" delay={200}>
-            <span className="inline-block px-4 py-1.5 bg-burj-accent/10 rounded-full text-sm font-medium text-burj-accent mb-4">
+            <span className="inline-block px-4 py-1.5 bg-white/5 backdrop-blur-sm rounded-full text-sm font-medium text-white mb-4 border border-white/10">
               About Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-white">
               Audio Excellence Since 2013
             </h2>
             
-            <div className="space-y-4 text-muted-foreground">
+            <div className="space-y-4 text-white/70">
               <p>
                 At Burj Audio, we are passionate about delivering exceptional audio experiences. Founded in 2013, we have established ourselves as leaders in premium audio system installation and services.
               </p>
@@ -86,15 +86,15 @@ const About = () => {
             </div>
             
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-secondary rounded-lg p-4">
-                <h3 className="font-medium mb-2">Our Mission</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <h3 className="font-medium mb-2 text-white">Our Mission</h3>
+                <p className="text-sm text-white/70">
                   To transform spaces through exceptional audio experiences, combining technical excellence with aesthetic sensibility.
                 </p>
               </div>
-              <div className="bg-secondary rounded-lg p-4">
-                <h3 className="font-medium mb-2">Our Vision</h3>
-                <p className="text-sm text-muted-foreground">
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <h3 className="font-medium mb-2 text-white">Our Vision</h3>
+                <p className="text-sm text-white/70">
                   To be the premier provider of audio solutions, setting the standard for innovation and customer service.
                 </p>
               </div>

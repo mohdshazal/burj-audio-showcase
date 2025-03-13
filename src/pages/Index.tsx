@@ -34,17 +34,17 @@ const Index = () => {
     
     // Add Open Graph tags for social sharing
     const ogTitle = document.createElement('meta');
-    ogTitle.property = 'og:title';
+    ogTitle.setAttribute('property', 'og:title');
     ogTitle.content = 'Burj Audio | Premium Audio Systems & Installation';
     document.head.appendChild(ogTitle);
     
     const ogDescription = document.createElement('meta');
-    ogDescription.property = 'og:description';
+    ogDescription.setAttribute('property', 'og:description');
     ogDescription.content = 'Experience premium audio with Burj Audio - specialists in high-end audio system installation and home cinema solutions.';
     document.head.appendChild(ogDescription);
     
     const ogType = document.createElement('meta');
-    ogType.property = 'og:type';
+    ogType.setAttribute('property', 'og:type');
     ogType.content = 'website';
     document.head.appendChild(ogType);
     

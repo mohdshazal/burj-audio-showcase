@@ -6,12 +6,21 @@ import AnimatedSection from "./AnimatedSection";
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
+  const [audioActive, setAudioActive] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoaded(true);
     }, 300);
-    return () => clearTimeout(timer);
+
+    const audioTimer = setInterval(() => {
+      setAudioActive(prev => !prev);
+    }, 800);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(audioTimer);
+    };
   }, []);
 
   return (
@@ -19,20 +28,21 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen pt-20 flex items-center overflow-hidden bg-gradient-to-b from-black via-black/95 to-black/90"
     >
-      {/* Audio wave background effect */}
-      <div className="absolute inset-0 z-0 opacity-20">
-        {[...Array(8)].map((_, i) => (
-          <div 
-            key={i} 
-            className="absolute h-1 bg-gradient-to-r from-white/10 via-white/30 to-white/10 rounded-full"
-            style={{
-              left: '10%',
-              right: '10%',
-              top: `${30 + i * 8}%`,
-              animation: `pulse 2s ease-in-out ${i * 0.2}s infinite`
-            }}
-          />
-        ))}
+      {/* Premium audio wave animation */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-1">
+          {[...Array(24)].map((_, i) => (
+            <div 
+              key={i} 
+              className="w-1 bg-gradient-to-t from-white/10 to-white/80 rounded-full"
+              style={{
+                height: `${10 + Math.sin((Date.now() / 500) + i * 0.8) * 30}px`,
+                opacity: 0.1 + Math.sin((Date.now() / 1000) + i) * 0.1 + (i % 5 === 0 ? 0.3 : 0),
+                transition: "height 0.3s ease-in-out"
+              }}
+            />
+          ))}
+        </div>
       </div>
       
       <div className="container relative z-10 mx-auto px-4 md:px-6 py-16 md:py-24">
@@ -78,11 +88,11 @@ const Hero = () => {
             className="relative lg:h-[600px] flex items-center justify-center"
           >
             <div className="relative w-full h-full max-w-[500px] mx-auto">
-              {/* Premium glow effect */}
+              {/* Premium sound wave effect */}
               <div 
                 className={cn(
-                  "absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl blur-3xl opacity-0 transition-opacity duration-1000",
-                  loaded && "opacity-40"
+                  "absolute inset-0 bg-gradient-to-br from-white/5 via-white/10 to-transparent rounded-3xl blur-3xl opacity-0 transition-opacity duration-1000",
+                  loaded && "opacity-20"
                 )} 
               />
               
@@ -96,26 +106,40 @@ const Hero = () => {
                 loading="lazy"
               />
               
-              {/* Floating elements with premium animations */}
-              <div className="absolute -top-6 -right-6 bg-gradient-to-br from-white/10 to-black/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 animate-float z-20">
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-white rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-sm font-medium text-white">Premium Sound Quality</span>
-                </div>
+              {/* Dynamic audio visualization rings */}
+              <div className="absolute inset-0 z-20 flex items-center justify-center">
+                {[...Array(3)].map((_, i) => (
+                  <div 
+                    key={i}
+                    className={cn(
+                      "absolute rounded-full border transition-all duration-1000",
+                      audioActive ? "opacity-40" : "opacity-20",
+                    )}
+                    style={{
+                      width: `${50 + i * 25}%`,
+                      height: `${50 + i * 25}%`,
+                      borderWidth: "1px",
+                      borderColor: "rgba(255,255,255,0.3)",
+                      transform: `scale(${audioActive ? 1.05 : 1})`,
+                      transitionDelay: `${i * 100}ms`
+                    }}
+                  />
+                ))}
               </div>
               
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-white/10 to-black/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 animate-float z-20" style={{ animationDelay: "1.5s" }}>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-white rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-sm font-medium text-white">Expert Installation</span>
-                </div>
-              </div>
-              
-              <div className="absolute top-1/2 -right-12 transform -translate-y-1/2 bg-gradient-to-br from-white/10 to-black/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 animate-float z-20" style={{ animationDelay: "2.2s" }}>
-                <div className="flex items-center">
-                  <div className="w-3 h-3 bg-white rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-sm font-medium text-white">Custom Solutions</span>
-                </div>
+              {/* Sound wave at bottom */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex items-end justify-center space-x-1 w-3/4">
+                {[...Array(12)].map((_, i) => (
+                  <div 
+                    key={i} 
+                    className="w-1 bg-white rounded-full"
+                    style={{
+                      height: `${4 + Math.sin((Date.now() / 300) + i * 0.5) * 12}px`,
+                      opacity: 0.5 + Math.sin((Date.now() / 500) + i) * 0.5,
+                      transitionDelay: `${i * 50}ms`
+                    }}
+                  />
+                ))}
               </div>
             </div>
           </AnimatedSection>

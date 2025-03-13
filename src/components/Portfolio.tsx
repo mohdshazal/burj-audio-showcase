@@ -15,25 +15,25 @@ const projects: Project[] = [
   {
     title: "Luxury Villa Audio System",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=3540&auto=format&fit=crop",
     description: "Complete home audio setup with ceiling speakers in 12 zones and a dedicated cinema room."
   },
   {
     title: "Boutique Hotel Lobby",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+    image: "https://images.unsplash.com/photo-1649429398909-877aebd40f19?q=80&w=3012&auto=format&fit=crop",
     description: "Ambient background music system with seamless zone control for different areas."
   },
   {
     title: "Downtown Apartment",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+    image: "https://images.unsplash.com/photo-1575442424474-5564ba599b8e?q=80&w=2969&auto=format&fit=crop",
     description: "Minimalist audio solution with hidden speakers and smart home integration."
   },
   {
     title: "Fine Dining Restaurant",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04",
+    image: "https://images.unsplash.com/photo-1527698266440-12104e498b76?q=80&w=2370&auto=format&fit=crop",
     description: "Sophisticated sound system with perfect acoustics for an enhanced dining experience."
   }
 ];
@@ -85,14 +85,15 @@ const Portfolio = () => {
           {filteredProjects.map((project, index) => (
             <AnimatedSection 
               key={index} 
-              className="group relative overflow-hidden rounded-2xl shadow-md hover-lift"
+              className="group relative overflow-hidden rounded-2xl shadow-md"
               delay={100 * index}
+              animation="scale-in"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div 
                 className={cn(
-                  "absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center",
+                  "absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex items-center justify-center",
                   hoveredIndex === index && "animate-fade-in"
                 )}
               >
@@ -118,8 +119,7 @@ const Portfolio = () => {
                 loading="lazy"
               />
               
-              {/* Premium accent line */}
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 overflow-hidden">
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-white/5 via-white/30 to-white/5 overflow-hidden">
                 <div className="h-full bg-white/80 w-1/3 animate-shimmer rounded-r-full" />
               </div>
             </AnimatedSection>

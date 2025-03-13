@@ -6,7 +6,7 @@ interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  animation?: "fade-in" | "fade-in-right" | "fade-in-left" | "fade-in-up" | "fade-in-down" | "scale-in" | "bounce-in";
+  animation?: "fade-in" | "fade-in-right" | "fade-in-left" | "fade-in-up" | "fade-in-down" | "scale-in" | "bounce-in" | "reveal-up";
   threshold?: number;
   duration?: number;
   onMouseEnter?: () => void;
@@ -68,6 +68,8 @@ const AnimatedSection = ({
         return "opacity-0 scale-95";
       case "bounce-in":
         return "opacity-0 scale-90";
+      case "reveal-up":
+        return "opacity-0 translate-y-5 overflow-hidden before:content-[''] before:absolute before:inset-0 before:w-full before:h-full before:bg-gradient-to-t before:from-white/10 before:to-transparent before:translate-y-full";
       default:
         return "opacity-0";
     }
@@ -77,6 +79,8 @@ const AnimatedSection = ({
     switch (animation) {
       case "bounce-in":
         return "opacity-100 scale-100 motion-safe:animate-[bounce_0.5s_ease-out]";
+      case "reveal-up":
+        return "opacity-100 translate-y-0 before:translate-y-0";
       default:
         return "opacity-100 translate-x-0 translate-y-0 scale-100";
     }
@@ -88,7 +92,7 @@ const AnimatedSection = ({
       className={cn(
         getAnimationClass(),
         isVisible && getActiveClass(),
-        "transition-all",
+        "transition-all relative",
         className
       )}
       style={{ 
