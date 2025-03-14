@@ -1,9 +1,7 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
 import { ArrowRight } from "lucide-react";
-import gsap from "gsap";
 
 interface Project {
   title: string;
@@ -16,13 +14,13 @@ const projects: Project[] = [
   {
     title: "Luxury Villa Audio System",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1698774601985-6a396088de56?q=80&w=3270&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2898&auto=format&fit=crop",
     description: "Complete home audio setup with ceiling speakers in 12 zones and a dedicated cinema room."
   },
   {
     title: "Boutique Hotel Lobby",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=3270&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1626128665085-483747621778?q=80&w=2940&auto=format&fit=crop",
     description: "Ambient background music system with seamless zone control for different areas."
   },
   {
@@ -34,7 +32,7 @@ const projects: Project[] = [
   {
     title: "Fine Dining Restaurant",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1676721035496-8e8414d2e3ba?q=80&w=3268&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1558584673-c834fb1cc3ca?q=80&w=3000&auto=format&fit=crop",
     description: "Sophisticated sound system with perfect acoustics for an enhanced dining experience."
   }
 ];
@@ -45,21 +43,6 @@ const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    // GSAP animation for portfolio items
-    gsap.from(".portfolio-item", {
-      opacity: 0,
-      y: 50,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: "#portfolio",
-        start: "top 70%",
-      }
-    });
-  }, []);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -101,7 +84,7 @@ const Portfolio = () => {
           {filteredProjects.map((project, index) => (
             <AnimatedSection 
               key={index} 
-              className="group relative overflow-hidden rounded-2xl shadow-md portfolio-item"
+              className="group relative overflow-hidden rounded-2xl shadow-md"
               delay={100 * index}
               animation="scale-in"
               onMouseEnter={() => setHoveredIndex(index)}

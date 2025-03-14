@@ -1,9 +1,8 @@
 
-import React, { useEffect } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
 import { Award, Clock, Users, ShieldCheck } from "lucide-react";
-import gsap from "gsap";
 
 interface Stat {
   icon: React.ElementType;
@@ -35,21 +34,6 @@ const stats: Stat[] = [
 ];
 
 const About = () => {
-  useEffect(() => {
-    // GSAP animation for stats
-    gsap.from(".stat-item", {
-      opacity: 0,
-      y: 20,
-      stagger: 0.1,
-      duration: 0.6,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top 70%",
-      }
-    });
-  }, []);
-  
   return (
     <section id="about" className="section-padding">
       <div className="container mx-auto px-4 md:px-6">
@@ -58,7 +42,7 @@ const About = () => {
             <div className="relative rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-tr from-burj-accent to-transparent opacity-20 z-10" />
               <img
-                src="https://images.unsplash.com/photo-1545454673-3531b543be5d?q=80&w=3540&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=3065&auto=format&fit=crop"
                 alt="Burj Audio Premium Equipment"
                 className="w-full h-[500px] object-cover"
                 loading="lazy"
@@ -70,7 +54,7 @@ const About = () => {
                   const Icon = stat.icon;
                   
                   return (
-                    <div key={index} className="text-center p-3 hover:scale-105 transition-transform duration-300 stat-item">
+                    <div key={index} className="text-center p-3 hover:scale-105 transition-transform duration-300">
                       <Icon className="w-6 h-6 text-white mx-auto mb-2" />
                       <div className="text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
                       <div className="text-xs md:text-sm text-white/70">{stat.label}</div>

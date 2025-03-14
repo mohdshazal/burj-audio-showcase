@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import { Menu, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import gsap from "gsap";
 
 interface NavItem {
   label: string;
@@ -52,16 +51,6 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
-    // GSAP animation for navbar items
-    gsap.from(".nav-item", {
-      opacity: 0,
-      y: -20,
-      stagger: 0.1,
-      duration: 0.8,
-      ease: "power3.out",
-      delay: 0.5
-    });
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -117,13 +106,13 @@ const Header = () => {
               )}
               style={{ top: "60px" }}
             >
-              <nav className="flex flex-col items-center justify-center h-full space-y-8 p-4 bg-black/95">
+              <nav className="flex flex-col items-center justify-center h-full space-y-8">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
                     className={cn(
-                      "text-2xl font-medium transition-all duration-300 relative group nav-item",
+                      "text-2xl font-medium transition-all duration-300 relative group",
                       activeSection === item.href.substring(1) 
                         ? "text-white" 
                         : "text-white/60 hover:text-white"
@@ -147,7 +136,7 @@ const Header = () => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium transition-all duration-300 relative group hover:scale-105 nav-item",
+                  "text-sm font-medium transition-all duration-300 relative group hover:scale-105",
                   activeSection === item.href.substring(1) 
                     ? "text-white" 
                     : "text-white/60 hover:text-white"
