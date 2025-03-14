@@ -12,11 +12,16 @@ import ScrollToTop from "@/components/ScrollToTop";
 import FAQ from "@/components/FAQ";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import InitialLoader from "@/components/InitialLoader";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+    
     // SEO optimization
     document.title = "Burj Audio | Premium Audio Systems & Installation";
     
@@ -47,6 +52,22 @@ const Index = () => {
     ogType.setAttribute('property', 'og:type');
     ogType.content = 'website';
     document.head.appendChild(ogType);
+    
+    // GSAP section transitions
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section) => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "top 50%",
+          toggleActions: "play none none none"
+        }
+      });
+    });
     
     // Simulate loading time
     const timer = setTimeout(() => {

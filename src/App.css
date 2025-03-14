@@ -63,6 +63,11 @@ body {
   100% { transform: scale(1); }
 }
 
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -119,6 +124,26 @@ body {
   color: transparent;
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
+}
+
+/* Sound quality texts in hero */
+.sound-quality-text {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+.sound-quality-text.delay-300 {
+  animation-delay: 3s;
+}
+
+.sound-quality-text.delay-600 {
+  animation-delay: 6s;
 }
 
 /* Audio wave animation */
