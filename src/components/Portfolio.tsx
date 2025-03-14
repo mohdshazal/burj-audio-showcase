@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
@@ -15,25 +14,25 @@ const projects: Project[] = [
   {
     title: "Luxury Villa Audio System",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=3540&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2898&auto=format&fit=crop",
     description: "Complete home audio setup with ceiling speakers in 12 zones and a dedicated cinema room."
   },
   {
     title: "Boutique Hotel Lobby",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1649429398909-877aebd40f19?q=80&w=3012&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1626128665085-483747621778?q=80&w=2940&auto=format&fit=crop",
     description: "Ambient background music system with seamless zone control for different areas."
   },
   {
     title: "Downtown Apartment",
     category: "Residential",
-    image: "https://images.unsplash.com/photo-1575442424474-5564ba599b8e?q=80&w=2969&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=3540&auto=format&fit=crop",
     description: "Minimalist audio solution with hidden speakers and smart home integration."
   },
   {
     title: "Fine Dining Restaurant",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1527698266440-12104e498b76?q=80&w=2370&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1558584673-c834fb1cc3ca?q=80&w=3000&auto=format&fit=crop",
     description: "Sophisticated sound system with perfect acoustics for an enhanced dining experience."
   }
 ];

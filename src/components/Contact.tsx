@@ -21,8 +21,8 @@ const contactInfo: ContactInfo[] = [
   {
     icon: Phone,
     title: "Phone Number",
-    info: "+1 (555) 123-4567",
-    link: "tel:+15551234567"
+    info: "+91 9495205426",
+    link: "tel:+919495205426"
   },
   {
     icon: Mail,
@@ -33,8 +33,8 @@ const contactInfo: ContactInfo[] = [
   {
     icon: MessageSquare,
     title: "WhatsApp",
-    info: "+1 (555) 987-6543",
-    link: "https://wa.me/15559876543"
+    info: "+91 9495205426",
+    link: "https://wa.me/919495205426"
   }
 ];
 
@@ -229,24 +229,6 @@ const Contact = () => {
                   </div>
                 );
               })}
-            </div>
-            
-            <div className="mt-8 p-6 bg-background rounded-xl shadow-sm">
-              <h3 className="text-xl font-medium mb-4">Business Hours</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Monday - Friday</span>
-                  <span className="font-medium">9:00 AM - 6:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Saturday</span>
-                  <span className="font-medium">10:00 AM - 4:00 PM</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sunday</span>
-                  <span className="font-medium">Closed</span>
-                </div>
-              </div>
             </div>
           </AnimatedSection>
         </div>

@@ -23,7 +23,7 @@ const WhatsAppButton = ({
       className={cn(
         "fixed bottom-24 right-8 z-50 flex items-center justify-center",
         "w-14 h-14 bg-[#25D366] rounded-full shadow-lg hover:scale-110",
-        "transition-all duration-300 animate-subtle-bounce"
+        "transition-all duration-300"
       )}
       aria-label="Contact on WhatsApp"
     >
