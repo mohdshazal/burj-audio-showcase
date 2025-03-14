@@ -53,6 +53,13 @@ const Index = () => {
     ogType.content = 'website';
     document.head.appendChild(ogType);
     
+    // Update favicon
+    const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
+    favicon.type = 'image/svg+xml';
+    favicon.rel = 'icon';
+    favicon.href = '/favicon.ico';
+    document.head.appendChild(favicon);
+    
     // GSAP section transitions
     const sections = document.querySelectorAll('section');
     sections.forEach((section) => {

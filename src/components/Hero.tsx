@@ -137,7 +137,7 @@ const Hero = () => {
               />
               
               <img
-                src="https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=3540&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&fm=webp"
                 alt="Premium Home Audio System"
                 className={cn(
                   "relative z-10 w-full h-full object-cover rounded-3xl shadow-2xl transition-all duration-1000 scale-95 opacity-0",
