@@ -87,7 +87,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <WhatsAppButton phoneNumber="+919495205426" />
     </div>
   );
