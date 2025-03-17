@@ -82,7 +82,7 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-white/10",
         isScrolled 
-          ? "bg-gradient-to-r from-black/90 via-black/95 to-black/90 shadow-lg shadow-black/50 backdrop-blur-md py-3" 
+          ? "bg-gradient-to-r from-black/90 via-black/95 to-black/90 shadow-lg shadow-black/50 py-3" 
           : "bg-gradient-to-b from-black/90 to-black/80 py-5"
       )}
     >
@@ -106,7 +106,7 @@ const Header = () => {
               )}
               style={{ top: "60px" }}
             >
-              <nav className="flex flex-col items-center justify-center h-full space-y-8">
+              <nav className="flex flex-col items-center h-full space-y-8 mt-10">
                 {navItems.map((item) => (
                   <a
                     key={item.href}
