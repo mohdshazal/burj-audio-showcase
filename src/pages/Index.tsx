@@ -8,7 +8,6 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 import FAQ from "@/components/FAQ";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import InitialLoader from "@/components/InitialLoader";
@@ -18,41 +17,41 @@ const Index = () => {
 
   useEffect(() => {
     // SEO optimization
-    document.title = "Burj Audio | Premium Audio Systems & Installation";
-    
+    document.title = "Audio Master | Premium Audio Systems & Installation";
+
     // Add meta descriptions for SEO
     const metaDescription = document.createElement('meta');
     metaDescription.name = 'description';
-    metaDescription.content = 'Burj Audio provides premium audio system installation, home cinema setups, and professional sound solutions. Expert installation and consultation services.';
+    metaDescription.content = 'Audio Master provides premium audio system installation, home cinema setups, and professional sound solutions. Expert installation and consultation services.';
     document.head.appendChild(metaDescription);
-    
+
     // Add keywords for SEO
     const metaKeywords = document.createElement('meta');
     metaKeywords.name = 'keywords';
-    metaKeywords.content = 'audio systems, speaker installation, home cinema, sound systems, premium audio, surround sound, Burj Audio';
+    metaKeywords.content = 'audio systems, speaker installation, home cinema, sound systems, premium audio, surround sound, Audio Master';
     document.head.appendChild(metaKeywords);
-    
+
     // Add Open Graph tags for social sharing
     const ogTitle = document.createElement('meta');
     ogTitle.setAttribute('property', 'og:title');
-    ogTitle.content = 'Burj Audio | Premium Audio Systems & Installation';
+    ogTitle.content = 'Audio Master | Premium Audio Systems & Installation';
     document.head.appendChild(ogTitle);
-    
+
     const ogDescription = document.createElement('meta');
     ogDescription.setAttribute('property', 'og:description');
-    ogDescription.content = 'Experience premium audio with Burj Audio - specialists in high-end audio system installation and home cinema solutions.';
+    ogDescription.content = 'Experience premium audio with Audio Master - specialists in high-end audio system installation and home cinema solutions.';
     document.head.appendChild(ogDescription);
-    
+
     const ogType = document.createElement('meta');
     ogType.setAttribute('property', 'og:type');
     ogType.content = 'website';
     document.head.appendChild(ogType);
-    
+
     // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2500);
-    
+
     return () => {
       clearTimeout(timer);
       // Clean up meta tags when component unmounts

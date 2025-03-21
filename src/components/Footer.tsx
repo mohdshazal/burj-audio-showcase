@@ -22,11 +22,6 @@ const socialLinks: SocialLink[] = [
     label: "Instagram"
   },
   {
-    icon: Twitter,
-    href: "https://twitter.com",
-    label: "Twitter"
-  },
-  {
     icon: Linkedin,
     href: "https://linkedin.com",
     label: "LinkedIn"
@@ -40,7 +35,7 @@ const socialLinks: SocialLink[] = [
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
     <footer className="bg-burj-dark text-white py-12 md:py-16">
       <div className="container mx-auto px-4 md:px-6">
@@ -53,7 +48,7 @@ const Footer = () => {
             <div className="flex space-x-4 mt-6">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
-                
+
                 return (
                   <a
                     key={index}
@@ -69,7 +64,7 @@ const Footer = () => {
               })}
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -105,7 +100,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-medium mb-4">Newsletter</h3>
             <p className="text-white/70 mb-4">
@@ -127,10 +122,10 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        
+
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm">
-            © {currentYear} Burj Audio. All rights reserved.
+            © {currentYear} Audio Master. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="text-white/70 text-sm hover:text-burj-accent transition-colors">

@@ -27,7 +27,7 @@ const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     title: "Email Address",
-    info: "info@burjaudio.com",
+    info: "info@audiomaster.com",
     link: "mailto:info@burjaudio.com"
   },
   {
@@ -45,7 +45,7 @@ const Contact = () => {
     phone: "",
     message: ""
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -57,7 +57,7 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       console.log("Form submitted:", formState);
@@ -69,7 +69,7 @@ const Contact = () => {
         phone: "",
         message: ""
       });
-      
+
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -95,7 +95,7 @@ const Contact = () => {
           <AnimatedSection>
             <div className="bg-background rounded-2xl p-6 md:p-8 shadow-sm">
               <h3 className="text-xl font-medium mb-6">Send Us a Message</h3>
-              
+
               {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-8">
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
@@ -124,7 +124,7 @@ const Contact = () => {
                         onChange={handleChange}
                       />
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-1">
@@ -141,7 +141,7 @@ const Contact = () => {
                           onChange={handleChange}
                         />
                       </div>
-                      
+
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium mb-1">
                           Phone Number
@@ -157,7 +157,7 @@ const Contact = () => {
                         />
                       </div>
                     </div>
-                    
+
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium mb-1">
                         Message
@@ -173,9 +173,9 @@ const Contact = () => {
                         onChange={handleChange}
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full button-primary"
                       disabled={isSubmitting}
                     >
@@ -199,15 +199,15 @@ const Contact = () => {
               )}
             </div>
           </AnimatedSection>
-          
+
           <AnimatedSection animation="fade-in-left" delay={200}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
-                
+
                 return (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="bg-background p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
                   >
                     <div className="w-12 h-12 bg-burj-accent/10 flex items-center justify-center rounded-lg mb-4">
@@ -215,8 +215,8 @@ const Contact = () => {
                     </div>
                     <h3 className="text-lg font-medium mb-1">{item.title}</h3>
                     {item.link ? (
-                      <a 
-                        href={item.link} 
+                      <a
+                        href={item.link}
                         className="text-burj-accent hover:underline"
                         target={item.link.startsWith('http') ? "_blank" : ""}
                         rel={item.link.startsWith('http') ? "noopener noreferrer" : ""}

@@ -17,28 +17,28 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "Sarah Johnson",
     position: "Homeowner",
-    quote: "The team at Burj Audio transformed our living room with an incredible sound system that's both powerful and aesthetically pleasing. Their attention to detail is exceptional!",
+    quote: "The team at Audio Master transformed our living room with an incredible sound system that's both powerful and aesthetically pleasing. Their attention to detail is exceptional!",
     rating: 5
   },
   {
     id: 2,
     name: "James Thompson",
     position: "Restaurant Owner",
-    quote: "Our customers constantly comment on the perfect audio balance in our restaurant. Burj Audio created a system that enhances the dining experience without overwhelming conversation.",
+    quote: "Our customers constantly comment on the perfect audio balance in our restaurant. Audio Master created a system that enhances the dining experience without overwhelming conversation.",
     rating: 5
   },
   {
     id: 3,
     name: "Michael Chen",
     position: "Tech Enthusiast",
-    quote: "As someone who's very particular about sound quality, I was blown away by Burj Audio's expertise. They created a custom solution that exceeded my expectations.",
+    quote: "As someone who's very particular about sound quality, I was blown away by Audio Master's expertise. They created a custom solution that exceeded my expectations.",
     rating: 5
   },
   {
     id: 4,
     name: "Amanda Williams",
     position: "Interior Designer",
-    quote: "I've recommended Burj Audio to several clients. Their ability to integrate sophisticated audio systems while respecting design aesthetics is truly impressive.",
+    quote: "I've recommended Audio Master to several clients. Their ability to integrate sophisticated audio systems while respecting design aesthetics is truly impressive.",
     rating: 4
   }
 ];
@@ -47,24 +47,24 @@ const Testimonials = () => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   const next = useCallback(() => {
     if (isAnimating) return;
-    
+
     setIsAnimating(true);
     setDirection('right');
     setActive((prev) => (prev + 1) % testimonials.length);
-    
+
     setTimeout(() => setIsAnimating(false), 500);
   }, [isAnimating]);
 
   const prev = useCallback(() => {
     if (isAnimating) return;
-    
+
     setIsAnimating(true);
     setDirection('left');
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-    
+
     setTimeout(() => setIsAnimating(false), 500);
   }, [isAnimating]);
 
@@ -72,7 +72,7 @@ const Testimonials = () => {
     const interval = setInterval(() => {
       next();
     }, 5000);
-    
+
     return () => clearInterval(interval);
   }, [next]);
 
@@ -87,7 +87,7 @@ const Testimonials = () => {
             What Our Clients Say
           </h2>
           <p className="text-white/70">
-            Read what our satisfied customers have to say about their experience with Burj Audio.
+            Read what our satisfied customers have to say about their experience with Audio Master.
           </p>
         </AnimatedSection>
 
@@ -148,7 +148,7 @@ const Testimonials = () => {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          
+
           <button
             className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 w-10 h-10 bg-burj-dark/50 backdrop-blur rounded-full flex items-center justify-center text-white transition-all hover:bg-burj-accent"
             onClick={next}
